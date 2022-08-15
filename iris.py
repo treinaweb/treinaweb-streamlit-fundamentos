@@ -32,3 +32,17 @@ iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 
+rfc = RandomForestClassifier()
+rfc.fit(X, y)
+
+previsao = rfc.predict(df)
+previsao_probabilidade = rfc.predict_proba(df)
+
+st.subheader("Rótulos de classificação")
+st.write(iris.target_names)
+
+st.subheader("Previsão")
+st.write(previsao)
+
+st.subheader("Previsão %")
+st.write(previsao_probabilidade)
